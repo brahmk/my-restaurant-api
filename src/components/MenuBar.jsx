@@ -12,7 +12,7 @@ export default function MenuBar(){
     <Menu theme='dark' mode='horizontal'>
        <Menu.Item  onClick={() => navigate('add')} key='add' icon={<PlusCircleOutlined style={{ fontSize: '1.8em'}}/>}></Menu.Item>
        <Menu.Item key='random' icon={<QuestionCircleOutlined style={{ fontSize: '1.8em'}}/>}></Menu.Item>
-       <Menu.Item onClick={() => navigate('login')} key='user' icon={<UserOutlined style={{ fontSize: '1.8em'}}/>}></Menu.Item>
+
        <Menu.Item onClick={() => navigate('/')} key='home' icon={<HomeOutlined style={{ fontSize: '1.8em'}}/>}></Menu.Item>
        
        
