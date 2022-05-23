@@ -1,6 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
-import {Col, Row, Card} from 'antd';
+import {Row} from 'antd';
+import RestaurantCard from "./RestaurantCard";
+import {Layout, Menu} from 'antd'
+
+const {Header , Content} = Layout
 
 function RestaurantList(){
     const [restaurants, setRestaurants]= useState()
@@ -12,23 +16,14 @@ fetch('https://my-first-firestore-bk.web.app/restaurants')
 
 },[])
     return (<>
-    <section>
+    <section style ={{ marginTop: '60px'}}>
         <Row gutter={16}>
         {!restaurants
         ? <h2>Loading...</h2>
         :
-        restaurants.map(restaurant => (
-            <Col style={{width: '300px', margin: '1em'}} key={restaurant.id}>
-                <Card
-                cover={<img src = {restaurant.image} alt={`Typical meal at ${restaurant.name}`}/>}
-                hoverable>
-                    <Card.Meta title={restaurant.name} description={restaurant.address} />
-                    
-             
-             
-             </Card>
-         </Col>
-        )
+        restaurants.map(restaurant =>  <RestaurantCard restaurant={restaurant} key={restaurant.id} />
+            
+        
     
     
 
