@@ -40,7 +40,7 @@ function App() {
                 path="add"
                 element={
                   !user 
-                  ? <Login setUser={setUser} /> 
+                  ? <Login  /> 
                   : <h1>Add restaurant</h1>
                 }
               />
