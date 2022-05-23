@@ -4,6 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import RestaurantList from "./components/RestaurantList";
 import Login from "./components/Login";
 import { useState } from "react";
+import { createContext } from "react";
 
 import RestaurantPage from "./components/RestaurantPage";
 import MenuBar from "./components/MenuBar";
@@ -16,14 +17,17 @@ import {
 
 const { Header, Content } = Layout;
 
+export const UserContext = createContext();
+
 function App() {
   const [user, setUser] = useState();
   return (
     <>
       <BrowserRouter>
+      <UserContext.Provider value={{user, setUser}}>
         <Layout className="layout">
           <Header>
-            <MenuBar />
+            <MenuBar user ={user}/>
           </Header>
           <Content>
             <Routes>
@@ -46,6 +50,7 @@ function App() {
             </Routes>
           </Content>
         </Layout>
+        </UserContext.Provider>
       </BrowserRouter>
     </>
   );
