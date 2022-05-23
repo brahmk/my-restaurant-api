@@ -18,12 +18,14 @@ fetch('https://my-first-firestore-bk.web.app/restaurants')
         ? <h2>Loading...</h2>
         :
         restaurants.map(restaurant => (
-            <Col style={{width: '300px'}} key={restaurant.id}>
+            <Col style={{width: '300px', margin: '1em'}} key={restaurant.id}>
                 <Card
-                title={restaurant.name}
+                cover={<img src = {restaurant.image} alt={`Typical meal at ${restaurant.name}`}/>}
                 hoverable>
-             <p>{restaurant.address}</p>
-             <p>{restaurant.rating}</p>
+                    <Card.Meta title={restaurant.name} description={restaurant.address} />
+                    
+             
+             
              </Card>
          </Col>
         )
